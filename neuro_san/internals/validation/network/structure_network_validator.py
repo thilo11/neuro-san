@@ -19,6 +19,8 @@ from typing import List
 from neuro_san.internals.interfaces.dictionary_validator import DictionaryValidator
 from neuro_san.internals.validation.common.composite_dictionary_validator import CompositeDictionaryValidator
 from neuro_san.internals.validation.network.cycles_network_validator import CyclesNetworkValidator
+from neuro_san.internals.validation.network.function_parameters_network_validator \
+    import FunctionParametersNetworkValidator
 from neuro_san.internals.validation.network.missing_nodes_network_validator import MissingNodesNetworkValidator
 from neuro_san.internals.validation.network.unreachable_nodes_network_validator import UnreachableNodesNetworkValidator
 
@@ -38,5 +40,6 @@ class StructureNetworkValidator(CompositeDictionaryValidator):
             CyclesNetworkValidator(),
             MissingNodesNetworkValidator(),
             UnreachableNodesNetworkValidator(),
+            FunctionParametersNetworkValidator(),
         ]
         super().__init__(validators)
